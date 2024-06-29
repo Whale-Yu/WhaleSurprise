@@ -1,38 +1,139 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="shortcut icon" href="assets/whale.png" type="image/x-icon">
     <title>鲸喜频道</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        * {
+            font-family: "苹方";
+        }
+
+        body::-webkit-scrollbar {
+            display: none;
             background-color: #f4f4f9;
-            margin: 0;
-            padding: 0;
         }
-        .container {
-            max-width: 800px;
-            margin: 50px auto;
-            background: #fff;
+
+        html, body {
+            height: 100%;
+            overflow: scroll;
+            background-color: rgb(237, 237, 237);
+        }
+
+        html::-webkit-scrollbar, body::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+
+        /*.container {*/
+        /*    width: 96%;*/
+        /*    max-width: 800px;*/
+        /*    display: block;*/
+        /*    margin: 50px auto;*/
+        /*    background: #fff;*/
+        /*    padding: 20px;*/
+        /*    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);*/
+        /*    border-radius: 8px;*/
+        /*    background-image: url(https://files.getquicker.net/_sitefiles/_guides/52593d69-c99a-4367-8b98-08d9a65be47e/2023/12/25/223125_202824_0.gif);*/
+        /*}*/
+
+        .page {
+            width: 96%;
+            max-width: 1460px;
+            min-height: 300px;
+            display: block;
+            margin: 15px auto;
             padding: 20px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
             border-radius: 8px;
-            text-align: center;
+
             background-image: url(https://files.getquicker.net/_sitefiles/_guides/52593d69-c99a-4367-8b98-08d9a65be47e/2023/12/25/223125_202824_0.gif);
+
         }
-        h1 {
-            color: #333;
-            font-size: 24px;
+
+        .kui {
+            padding: 10px 10px;
+            border-radius: 15px;
+            margin-bottom: 10px;
+            font-size: 14px;
+            color: #3e4449;
+            background-color: #FFFFFF;
         }
-        form {
-            margin-bottom: 20px;
-        }
-        label {
+
+        .block {
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 15px;
             font-size: 16px;
-            color: #555;
+            background-color: #FFFFFF;
         }
+
+        .title {
+            font-size: 16px;
+            margin: 10px;
+            font-weight: 500;
+            color: #6b6b6b;
+        }
+
+        .app {
+            display: inline-block;
+            width: 25%;
+            max-width: 180px;
+            margin: 15px auto;
+            cursor: pointer;
+        }
+
+        .app-title {
+            text-align: center;
+            margin: 8px auto;
+            color: #3e3e3e;
+            font-size: 14px;
+            font-weight: 500;
+        }
+
+        .app-img {
+            width: 40%;
+            max-width: 100px;
+            border: 1px solid #FFFFFF;
+            border-radius: 10px;
+            clear: both;
+            display: block;
+            margin: auto;
+        }
+
+        .gzh h3 {
+            margin: 10px 0;
+        }
+
+        .gzh p {
+            margin: 10px 0;
+            color: #666666;
+        }
+
+        .gzhImg {
+            width: 95%;
+            max-width: 330px;
+            border-radius: 10px;
+            margin: 10px;
+        }
+
+        .none {
+            display: none;
+        }
+
+        .beiAn p {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+        .beiAn a {
+            color: #6b6b6b;
+            text-decoration: none;
+        }
+
         input[type="password"] {
             padding: 8px;
             margin: 10px 0;
@@ -42,6 +143,7 @@
             width: 100%;
             box-sizing: border-box;
         }
+
         button {
             padding: 8px 16px;
             font-size: 14px;
@@ -51,96 +153,119 @@
             border-radius: 4px;
             cursor: pointer;
         }
+
         button:hover {
             background-color: #0056b3;
         }
-        #content {
-            display: none;
-        }
-        .flex-container {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-start;
-            gap: 20px;
-            margin-top: 20px;
-        }
-        .flex-item {
-            background: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            width: calc(25% - 20px);
-            box-sizing: border-box;
+
+        .h1_title {
             text-align: center;
+        }
+
+        .btn {
+            text-align: center;
+            display: inline-block;
+            width: 100%;
             padding: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #4494d5;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
             cursor: pointer;
         }
-        .flex-item img {
-            width: 80px;
-            height: 80px;
-            border-radius: 8px;
-        }
-        .flex-item p {
-            margin: 10px 0 0;
+
+        .update-notice {
+            padding: 10px;
+            margin: 20px 0;
+            background-color: #f0f8ff;
+            border-left: 5px solid #0078d7;
+            font-size: 16px;
             color: #333;
+        }
+
+        .update-block {
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #e6f7ff;
+            border-left: 3px solid #0099e6;
             font-size: 14px;
+            color: #333;
         }
-        @media (max-width: 768px) {
-            .flex-item {
-                width: calc(50% - 20px);
-            }
-        }
-        @media (max-width: 480px) {
-            .flex-item {
-                width: 100%;
-            }
-        }
+
+
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>欢迎来到鲸喜频道！</h1>
+<div class="page">
+    <div class="rukou">
+        <h1 class="h1_title">欢迎来到鲸喜频道V2.0！</h1>
         <form id="passwordForm">
             <input type="password" id="password" required placeholder="请输入鲸喜口令">
-            <button type="submit">惊喜一下</button>
+            <button type="submit" class="btn">惊喜一下</button>
         </form>
-        <div id="content">
-            <div class="flex-container">
-                <div class="flex-item" onclick="window.open('https://t4ybmyujb1.feishu.cn/sheets/OzVls84uFhQ1IXtiZ3ncBnLjnec?sheet=0025df');">
-                    <img src="assets/python.png" alt="学学python">
-                    <p>学学python吧</p>
+        <div id="updateContent" class="update-notice">
+            <div class="update-block" style="background-color: aquamarine">【最新更新】2024.06.29更新：1.主页面重构、按类别分区域；2.添加网页更新可视化；3.新增小说网页</div>
+            <div class="update-block">2024.06.18更新：1.新增爱心攻击网页、三下乡网页</div>
+            <div class="update-block">2024.06.08更新：1.新增纪念日</div>
+            <div class="update-block">2024.06.07更新：自己去发现更新了什么吧!</div>
+            <div class="update-block">2024.06.06上线：鲸喜频道上线</div>
+
+        </div>
+    </div>
+
+    <div id="content" class="none">
+        <div class="kui">
+            <p class="title">云上杂货店</p>
+            <div style="margin: 0; padding: 0; font-size: 0;">
+                <div class="app" onclick="window.open('https://t4ybmyujb1.feishu.cn/sheets/OzVls84uFhQ1IXtiZ3ncBnLjnec?sheet=0025df');">
+                    <img src="assets/python.png" class="app-img">
+                    <p class="app-title">学学python</p>
                 </div>
-                <div class="flex-item" onclick="window.open('https://whale-yu.github.io/ShuaBuShu/bushu.html');">
-                    <img src="assets/run.png" alt="微信运动Pro">
-                    <p>微信运动Pro</p>
+                <div class="app" onclick="window.open('https://whale-yu.github.io/ShuaBuShu/bushu.html');">
+                    <img src="assets/run.png" class="app-img">
+                    <p class="app-title">微信运动Pro</p>
                 </div>
-                <div class="flex-item" onclick="window.open('https://a.cqzz.top/');">
-                    <img src="assets/run2.png" alt="备用：微信刷步数">
-                    <p>备用：微信刷步数</p>
+                <div class="app" onclick="window.open('https://a.cqzz.top/');">
+                    <img src="assets/run2.png" class="app-img">
+                    <p class="app-title">备用刷步数</p>
                 </div>
-                <div class="flex-item" onclick="window.open('http://47.94.168.81:5000/');">
-                    <img src="assets/volunteer.ico" alt="志愿时数导出Web版">
-                    <p>志愿时数导出Web版</p>
+                <div class="app" onclick="window.open('http://47.94.168.81:5000/');">
+                    <img src="assets/volunteer.ico" class="app-img">
+                    <p class="app-title">志愿导出Web版</p>
                 </div>
-                <div class="flex-item" onclick="window.open('https://d.fcl1.cn/eat');">
-                    <img src="https://m.cqzz.top/image/svg/饭.svg" alt="今天吃啥">
-                    <p>今天吃啥</p>
+                <div class="app" onclick="window.open('https://d.fcl1.cn/eat');">
+                    <img src="https://m.cqzz.top/image/svg/饭.svg" class="app-img">
+                    <p class="app-title">今天吃啥</p>
                 </div>
-                <div class="flex-item" onclick="window.open('https://whale-yu.github.io/YunStore/love.html');">
-                    <img src="assets/love.png" alt="爱心">
-                    <p>❤</p>
+                <div class="app" onclick="window.open('https://whale-yu.github.io/YunStore/index.html');">
+                    <img src="assets/三下乡.png" class="app-img">
+                    <p class="app-title">三下乡数据</p>
                 </div>
-                <div class="flex-item" onclick="window.open('https://whale-yu.github.io/YunStore/love2.html');">
-                    <img src="assets/love2.png" alt="纪念日">
-                    <p>纪念日</p>
+                <div class="app" onclick="window.open('https://whale-yu.github.io/YunStore/xiaoshuo.html');">
+                    <img src="assets/电子书.png" class="app-img">
+                    <p class="app-title">18🈲电子书</p>
                 </div>
-                <div class="flex-item" onclick="window.open('https://whale-yu.github.io/YunStore/index.html');">
-                    <img src="assets/三下乡.png" alt="三下乡数据">
-                    <p>三下乡数据</p>
+                <div class="flex-item" onclick="window.open('https://whale-yu.github.io/YunStore/wait.html');">
+                    <br>
+                    <h4>Surprise永无止境!</h4>
                 </div>
-                <div class="flex-item" onclick="window.open('https://whale-yu.github.io/YunStore/love3.html');">
-                    <img src="assets/love.png" alt="三下乡数据">
-                    <p>爱心攻击</p>
+            </div>
+        </div>
+        <div class="kui">
+            <p class="title">I Chocolate U ❤</p>
+            <div style="margin: 0; padding: 0; font-size: 0;">
+                <div class="app" onclick="window.open('https://whale-yu.github.io/YunStore/love.html');">
+                    <img src="assets/love.png" class="app-img">
+                    <p class="app-title">❤</p>
+                </div>
+                <div class="app" onclick="window.open('https://whale-yu.github.io/YunStore/love2.html');">
+                    <img src="assets/love2.png" class="app-img">
+                    <p class="app-title">纪念日</p>
+                </div>
+                <div class="app" onclick="window.open('https://whale-yu.github.io/YunStore/love3.html');">
+                    <img src="assets/love.png" class="app-img">
+                    <p class="app-title">爱心攻击</p>
                 </div>
                 <div class="flex-item" onclick="window.open('https://whale-yu.github.io/YunStore/wait.html');">
                     <br>
@@ -149,35 +274,36 @@
             </div>
         </div>
     </div>
-    <script>
-        async function sha256(message) {
-            const msgBuffer = new TextEncoder().encode(message);
-            const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
-            const hashArray = Array.from(new Uint8Array(hashBuffer));
-            const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
-            return hashHex;
+</div>
+<script src="https://img.faithxy.com/start/src/js/jquery.js"></script>
+<script src="https://motion.faithxy.com/start/cloud/src/js/menu.js"></script>
+
+<script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script>
+<script>
+    async function sha256(message) {
+        const msgBuffer = new TextEncoder().encode(message);
+        const hashBuffer = await crypto.subtle.digest('SHA-256', msgBuffer);
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+        const hashHex = hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
+        return hashHex;
+    }
+
+    document.getElementById("passwordForm").addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const password = document.getElementById("password").value;
+        const salt = "lajiaocharouwudibiantaila";
+        const saltedPassword = password + salt;
+        const hashedPassword = await sha256(saltedPassword);
+        const storedPasswordHash = '35348158dcf49554537303a875cf1f3a1d908178cc9f8a0ef7f618a560e8362d';
+
+        if (hashedPassword === storedPasswordHash) {
+            document.getElementById("passwordForm").style.display = "none";
+            document.getElementById("updateContent").style.display = "none";
+            document.getElementById("content").style.display = "block";
+        } else {
+            alert("口令错误，请重试。");
         }
-
-        document.getElementById("passwordForm").addEventListener("submit", async function(event) {
-            event.preventDefault();
-            const password = document.getElementById("password").value;
-            const salt = "lajiaocharouwudibiantaila";
-            const saltedPassword = password + salt;
-            const hashedPassword = await sha256(saltedPassword);
-
-            const storedPasswordHash = '35348158dcf49554537303a875cf1f3a1d908178cc9f8a0ef7f618a560e8362d';
-
-            if (hashedPassword === storedPasswordHash) {
-                document.getElementById("passwordForm").style.display = "none";
-                document.getElementById("content").style.display = "block";
-            } else {
-                alert("口令错误，请重试。");
-            }
-        });
-
-        // window.onload = function() {
-        //     alert("2024.06.18更新：新增爱心攻击网页、三下乡网页");
-        // };
-    </script>
+    });
+</script>
 </body>
 </html>
